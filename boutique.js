@@ -11,16 +11,22 @@ searchModels.forEach(function(model,i){
 });
 
 // Modify price field in general
+
 const model = document.querySelector("#content > div > div.col-sm-4 > ul:nth-child(6) > li:nth-child(1)");  
 
 const price = document.querySelector("#content > div > div.col-sm-4 > ul:nth-child(7) > li > h2");
 
 const replace = (function() {
-  if (model.innerText.slice(-1) === "*") {
+  if (model !== null && model.innerText.slice(-1) === "*") {
   price.innerText = "Sélectionnez un format";
   }
-});
+}) ;
 replace()
+
+//Change text of button when empty category
+
+const bouton = document.querySelector("#content > div.buttons.clearfix > div > a");
+bouton.innerText = "Maison";
 
 
 // const address = (window.location.pathname);
