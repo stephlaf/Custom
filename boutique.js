@@ -1,3 +1,8 @@
+// Get language from dropdown
+
+const lng = document.querySelector("#language > div > button > img");
+// console.log(lng.title);
+
 // Modify price field in search results
 
 const searchProductPrices = document.querySelectorAll(".price");
@@ -6,7 +11,11 @@ const searchModels = document.querySelectorAll(".product-model");
 
 searchModels.forEach(function(model,i){
   if (model.innerText.slice(-1) === "*") {
-  searchProductPrices[i].innerText = "Prix selon le format" ;
+    if (lng.title === "English") {
+      searchProductPrices[i].innerText = "Price by size" ;
+    } else {
+      searchProductPrices[i].innerText = "Prix selon le format" ;
+    }
   }
 });
 
@@ -18,17 +27,11 @@ const price = document.querySelector("#content > div > div.col-sm-4 > ul:nth-chi
 
 const replace = (function() {
   if (model !== null && model.innerText.slice(-1) === "*") {
-  price.innerText = "Sélectionnez un format";
+    if (lng.title === "English") {
+      price.innerText = "Select a size"; 
+    } else {
+      price.innerText = "Sélectionnez un format";
+    }
   }
-}) ;
+});
 replace()
-
-//Change text of button when empty category
-
-const bouton = document.querySelector("#content > div.buttons.clearfix > div > a");
-bouton.innerText = "Maison";
-
-
-// const address = (window.location.pathname);
-// const fetch = address.split('/');
-// category = (fetch[fetch.length-3]);
